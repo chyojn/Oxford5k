@@ -29,3 +29,9 @@ if false; then
     cat ../image_query.txt | xargs -P 4 -I fn ${HESAFF} fn 
     cd ..
 fi
+
+if false; then
+    cat lab/*_1_good.txt lab/*_1_ok.txt | sort | uniq | awk 'NF{print $0 ".jpg"}' > image_base_mini.txt
+    wc -l image_base_mini.txt
+    head image_base_mini.txt
+fi
