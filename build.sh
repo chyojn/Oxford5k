@@ -14,9 +14,18 @@ if false; then
     python crop_query.py
 fi
 
-if true; then
+if false; then
     cd jpg; find *.jpg > ../image_base.txt; cd ..
     cd lab; find *.jpg > ../image_query.txt; cd ..
     wc -l image_*.txt
     head image_*.txt
+fi
+
+if false; then
+    cd jpg
+    cat ../image_base.txt | xargs -P 4 -I fn ${HESAFF} fn 
+    cd ..
+    cd lab
+    cat ../image_query.txt | xargs -P 4 -I fn ${HESAFF} fn 
+    cd ..
 fi
